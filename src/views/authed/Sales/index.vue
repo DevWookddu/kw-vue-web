@@ -1,5 +1,5 @@
 <template>
-  <div class="auth-index">
+  <div class="sales-index">
     <router-view />
   </div>
 </template>
@@ -8,9 +8,9 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-  name: 'Main',
+  name: 'SalesIndex',
 })
-export default class Main extends Vue {}
+export default class SalesIndex extends Vue {}
 </script>
 
 <style lang="scss" scoped></style>

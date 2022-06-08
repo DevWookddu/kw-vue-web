@@ -1,17 +1,18 @@
 <template>
   <div class="login-container">
-    <div class="login-widget">
-      <KwInputField v-model="id" placeholder="아이디" />
-      <KwInputField v-model="password" type="password" placeholder="비밀번호" />
+    <form class="login-widget" @keyup.enter="onClickLogin">
+      <KwInputField v-model="id" ref="refId" placeholder="아이디" />
+      <KwInputField v-model="password" ref="refPassword" type="password" placeholder="비밀번호" />
       <KwButton block @click="onClickLogin">로그인</KwButton>
       <KwButton block variant="secondary" @click="goJoin">회원가입</KwButton>
-    </div>
+    </form>
   </div>
 </template>
 
 <script lang="ts">
 import { RouteNameEnum } from '@/types/enum/route/RouteNameEnum';
-import { Component, Vue } from 'vue-property-decorator';
+import { KwInputField } from 'kw-vue-library';
+import { Component, Ref, Vue } from 'vue-property-decorator';
 
 @Component({
   name: 'LoginView',
@@ -20,15 +21,21 @@ export default class LoginView extends Vue {
   private id = '';
   private password = '';
 
-  private onClickLogin() {
+  @Ref() private readonly refId!: KwInputField;
+
+  private async onClickLogin() {
     if (this.id !== 'test' || this.password !== 'test') {
-      this.$alert({
+      await this.$alert({
         message: '아이디/비밀번호를 확인해주세요',
       });
+      this.refId.focus();
       return;
     }
 
     this.$toast('로그인', 3000);
+    this.$router.push({
+      name: RouteNameEnum.PLP,
+    });
   }
 
   private goJoin() {
