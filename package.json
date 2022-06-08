@@ -8,8 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.22.0",
     "core-js": "^3.6.5",
-    "kw-vue-library": "^0.9.3",
+    "kw-vue-library": "^0.9.9",
     "vue": "^2.6.14",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",

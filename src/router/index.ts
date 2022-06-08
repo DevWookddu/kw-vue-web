@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Auth from './Auth';
+import Sales from './Authed/Sales';
 
 Vue.use(VueRouter);
 
@@ -11,6 +12,7 @@ const routes: Array<RouteConfig> = [
     redirect: 'auth/login',
   },
   Auth,
+  Sales,
 ];
 
 const router = new VueRouter({
